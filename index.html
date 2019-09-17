@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    <h1>Sign-Up</h1>
+    <form id="form" class="" action="index.html" method="post">
+      <label for="">Name:</label><br>
+      <input type="text" required name="name" value=""><br><br>
+
+      <label for="">Email:</label><br>
+      <input type="email" required name="email" value=""><br><br>
+
+      <label for="">Password</label><br>
+      <input type="password" required name="pass" value=""><br><br>
+
+      <label for="">Confirm password</label><br>
+      <input type="password" required name="compass" value=""><br><br>
+      <input type="submit" name="" value="Submit">
+    </form>
+    <script type="text/javascript">
+      if (typeof(Storage) !== "undefined") {
+        let form = document.getElementById('form');
+        form.addEventListener('submit', event => {
+          let name = form.elements.name.value;
+          let password = form.elements.pass.value;
+          let email = form.elements.email.value;
+          let pass1 = form.elements.pass.value;
+          let pass2 = form.elements.compass.value;
+          if (pass1 === pass2) {
+            // Store
+            localStorage.setItem("name", name);
+            localStorage.setItem("password", password);
+            localStorage.setItem("email", email);
+
+            event.preventDefault();
+            window.location.href="login.html";
+            return true;
+          }else {
+            alert('Password does not match');
+            return false;
+          }
+        })
+
+        // // Retrieve
+        // let result = document.getElementById("result");
+        // result.innerHTML = localStorage.getItem("name");
+        // console.log(result.innerHTML);
+      } else {
+          document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
+      }
+    </script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
